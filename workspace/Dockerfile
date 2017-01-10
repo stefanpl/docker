@@ -259,6 +259,17 @@ RUN if [ ${INSTALL_V8JS_EXTENSION} = true ]; then \
 ;fi
 
 #####################################
+# Install zsh and .oh-my-zsh
+#####################################
+
+USER root
+
+RUN apt-get install -y zsh \
+	&& usermod -s /bin/zsh root \
+	&& git clone https://github.com/stefanpl/oh-my-zsh $HOME/.oh-my-zsh \
+	&& ln -s $HOME/.oh-my-zsh/.zshrc $HOME/
+
+#####################################
 # Non-root user : PHPUnit path
 #####################################
 
