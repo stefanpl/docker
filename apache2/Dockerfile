@@ -15,3 +15,5 @@ WORKDIR /var/www/public
 ENTRYPOINT ["/opt/docker/bin/entrypoint.sh"]
 
 CMD ["supervisord"]
+
+RUN a2enmod dump_io
