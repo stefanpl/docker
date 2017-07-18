@@ -17,3 +17,9 @@ ENTRYPOINT ["/opt/docker/bin/entrypoint.sh"]
 CMD ["supervisord"]
 
 RUN ["a2enmod", "dump_io"]
+
+RUN apt-get update \
+	&& apt-get install -y git \
+	&& apt-get install -y zsh \
+	&& git clone https://github.com/stefanpl/oh-my-zsh $HOME/.oh-my-zsh \
+	&& ln -s $HOME/.oh-my-zsh/.zshrc $HOME/.zshrc
