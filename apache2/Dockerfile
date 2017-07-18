@@ -20,6 +20,6 @@ RUN ["a2enmod", "dump_io"]
 
 RUN apt-get update \
 	&& apt-get install -y git \
-	&& apt-get install -y zsh \
-	&& git clone https://github.com/stefanpl/oh-my-zsh $HOME/.oh-my-zsh \
-	&& ln -s $HOME/.oh-my-zsh/.zshrc $HOME/.zshrc
+	&& git clone https://github.com/stefanpl/install-scripts /tmp/install-scripts \
+	&& /tmp/install-scripts/install_zsh.sh \
+	&& /tmp/install-scripts/install_vim.sh 
